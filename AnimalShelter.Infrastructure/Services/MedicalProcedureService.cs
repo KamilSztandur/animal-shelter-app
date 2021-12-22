@@ -63,6 +63,7 @@ namespace AnimalShelter.Infrastructure.Services
         {
             return new MedicalProcedureDTO()
             {
+                Id = medicalProcedure.Id,
                 DoctorId = medicalProcedure.DoctorId,
                 AnimalId = medicalProcedure.AnimalId,
                 ProcedureName = medicalProcedure.ProcedureName,
@@ -78,7 +79,7 @@ namespace AnimalShelter.Infrastructure.Services
                 DoctorId = medicalProcedureBody.DoctorId,
                 AnimalId = medicalProcedureBody.AnimalId,
                 ProcedureName = medicalProcedureBody.ProcedureName,
-                WasSuccess = Boolean.Parse(medicalProcedureBody.WasSuccess),
+                WasSuccess = medicalProcedureBody.WasSuccess,
                 Date = DateTime.Parse(medicalProcedureBody.Date)
             };
 

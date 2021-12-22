@@ -8,7 +8,7 @@ namespace AnimalShelter.Infrastructure.Commands
         public int DoctorId { set; get; }
         public int AnimalId { set; get; }
         public string ProcedureName { set; get; }
-        public string WasSuccess { set; get; }
+        public bool WasSuccess { set; get; }
         public string Date { set; get; }
     }
 }

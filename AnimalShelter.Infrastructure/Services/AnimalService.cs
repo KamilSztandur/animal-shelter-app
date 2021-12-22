@@ -78,7 +78,7 @@ namespace AnimalShelter.Infrastructure.Services
                 Name = animalBody.Name,
                 MainDoctorId = animalBody.MainDoctorId,
                 BoxId = animalBody.BoxId,
-                IsReadyForAdoption = Boolean.Parse(animalBody.IsReadyForAdoption)
+                IsReadyForAdoption = animalBody.IsReadyForAdoption
             };
 
             return animal;

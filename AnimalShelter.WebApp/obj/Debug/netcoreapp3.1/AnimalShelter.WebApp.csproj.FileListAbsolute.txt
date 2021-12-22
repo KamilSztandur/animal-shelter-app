@@ -21,7 +21,6 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debu
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\AnimalShelter.WebApp.TagHelpers.output.cache
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\AnimalShelter.WebApp.RazorCoreGenerate.cache
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -161,3 +160,4 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debu
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\MedicalProcedure\Index.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\MedicalProcedure\Create.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\MedicalProcedure\Edit.cshtml.g.cs
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\MedicalProcedure\Delete.cshtml.g.cs
