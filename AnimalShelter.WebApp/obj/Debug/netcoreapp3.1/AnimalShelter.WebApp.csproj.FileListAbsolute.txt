@@ -152,3 +152,4 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\bin\Debu
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Index.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Create.cshtml.g.cs
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Edit.cshtml.g.cs
