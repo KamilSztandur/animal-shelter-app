@@ -2,8 +2,8 @@
 {
     public class DoctorDTO
     {
-        int Id { set; get; }
-        string Name { set; get; }
-        string SecondName { set; get; }
+        public int Id { set; get; }
+        public string Name { set; get; }
+        public string SecondName { set; get; }
     }
 }

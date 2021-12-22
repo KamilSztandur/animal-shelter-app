@@ -4,11 +4,11 @@ namespace AnimalShelter.Infrastructure.DTO
 {
     public class MedicalProcedureDTO
     {
-        int Id { set; get; }
-        int DoctorId { set; get; }
-        int AnimalId { set; get; }
-        string ProcedureName { set; get; }
-        bool WasSuccess { set; get; }
-        DateTime date { set; get; }
+        public int Id { set; get; }
+        public int DoctorId { set; get; }
+        public int AnimalId { set; get; }
+        public string ProcedureName { set; get; }
+        public bool WasSuccess { set; get; }
+        public DateTime date { set; get; }
     }
 }

@@ -5,10 +5,10 @@ namespace AnimalShelter.Infrastructure.Commands
 {
     public class CreateAnimal
     {
-        int BoxId { set; get; }
-        int MainDoctorId { set; get; }
-        string Name { set; get; }
-        string isReadyForAdoption { set; get; }
+        public int BoxId { set; get; }
+        public int MainDoctorId { set; get; }
+        public string Name { set; get; }
+        public string isReadyForAdoption { set; get; }
 
         public Animal ToAnimal()
         {

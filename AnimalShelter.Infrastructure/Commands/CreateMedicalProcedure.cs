@@ -5,11 +5,11 @@ namespace AnimalShelter.Infrastructure.Commands
 {
     public class CreateMedicalProcedure
     {
-        int DoctorId { set; get; }
-        int AnimalId { set; get; }
-        string ProcedureName { set; get; }
-        string WasSuccess { set; get; }
-        string date { set; get; }
+        public int DoctorId { set; get; }
+        public int AnimalId { set; get; }
+        public string ProcedureName { set; get; }
+        public string WasSuccess { set; get; }
+        public string date { set; get; }
 
         public MedicalProcedure ToMedicalProcedure()
         {

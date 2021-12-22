@@ -3,6 +3,7 @@ using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AnimalShelter.Infrastructure.Services
@@ -16,14 +17,27 @@ namespace AnimalShelter.Infrastructure.Services
             _animalsRepository = animalsRepository;
         }
 
-        public Task<bool> AddAnimal(CreateAnimal animalBody)
+        public async Task<bool> AddAnimal(CreateAnimal animalBody)
         {
-            throw new NotImplementedException();
+            var animal = animalBody.ToAnimal();
+
+            var result = await _animalsRepository.AddAsync(animal);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<IEnumerable<AnimalDTO>> BrowseAll()
+        public async Task<IEnumerable<AnimalDTO>> BrowseAll()
         {
-            throw new NotImplementedException();
+            var animals = await _animalsRepository.BrowseAllAsync();
+
+            return animals.Select(animal => new AnimalDTO()
+            {
+                Id = animal.Id,
+                Name = this.Name,
+                MainDoctorId = this.MainDoctorId,
+                BoxId = this.BoxId,
+                isReadyForAdoption = Boolean.Parse(this.isReadyForAdoption)
+            });
         }
 
         public Task<bool> DeleteAnimal(int id)

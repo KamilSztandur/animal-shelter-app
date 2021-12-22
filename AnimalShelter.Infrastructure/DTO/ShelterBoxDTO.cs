@@ -2,7 +2,7 @@
 {
     public class ShelterBoxDTO
     {
-        int Id { set; get; }
-        int AnimalId { set; get; }
+        public int Id { set; get; }
+        public int AnimalId { set; get; }
     }
 }

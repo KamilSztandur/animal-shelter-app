@@ -4,7 +4,7 @@ namespace AnimalShelter.Infrastructure.Commands
 {
     public class CreateShelterBox
     {
-        int AnimalId { set; get; }
+        public int AnimalId { set; get; }
 
         public ShelterBox ToMedicalProcedure()
         {
