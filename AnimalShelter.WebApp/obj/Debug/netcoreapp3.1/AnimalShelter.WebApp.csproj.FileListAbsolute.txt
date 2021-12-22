@@ -110,3 +110,4 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\bin\Debu
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\ShelterBox\Index.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\ShelterBox\Create.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\ShelterBox\Edit.cshtml.g.cs
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\ShelterBox\Delete.cshtml.g.cs
