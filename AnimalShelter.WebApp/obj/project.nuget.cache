@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KvnWP1sbZBBAzAdmaJCm6/4T0vx0Z7tLJx2ZXqb/LGt+d8jmC/mmSI1pGZ89B+tBT856MwsRjhbk/tIGXk4RNw==",
+  "dgSpecHash": "gjCO4i1Fk/vfw80QaAyguviA++ZOAezorGAo7e8QIOwksAnEreW/j6xsBkRFQIUg/K+4S6/46LhIWx1Hq0s2SQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kamil\\Documents\\GitHub\\animal-shelter-app\\AnimalShelter.WebApp\\AnimalShelter.WebApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kamil\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\kamil\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
   ],
   "logs": []
