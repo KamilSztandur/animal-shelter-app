@@ -9,7 +9,7 @@ namespace AnimalShelter.Infrastructure.Repositories
 {
     public class MedicalProcedureRepository : IMedicalProcedureRepository
     {
-        private AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;
 
         public MedicalProcedureRepository(AppDbContext appDbContext)
         {
@@ -98,7 +98,7 @@ namespace AnimalShelter.Infrastructure.Repositories
                 editedMedicalProcedure.AnimalId = medicalProcedureData.AnimalId;
                 editedMedicalProcedure.DoctorId = medicalProcedureData.DoctorId;
                 editedMedicalProcedure.ProcedureName = medicalProcedureData.ProcedureName;
-                editedMedicalProcedure.date = medicalProcedureData.date;
+                editedMedicalProcedure.Date = medicalProcedureData.Date;
                 editedMedicalProcedure.WasSuccess = medicalProcedureData.WasSuccess;
 
                 var result = _appDbContext.SaveChanges();

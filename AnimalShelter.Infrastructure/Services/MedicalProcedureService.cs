@@ -67,7 +67,7 @@ namespace AnimalShelter.Infrastructure.Services
                 AnimalId = medicalProcedure.AnimalId,
                 ProcedureName = medicalProcedure.ProcedureName,
                 WasSuccess = medicalProcedure.WasSuccess,
-                date = medicalProcedure.date
+                Date = medicalProcedure.Date
             };
         }
 
@@ -79,7 +79,7 @@ namespace AnimalShelter.Infrastructure.Services
                 AnimalId = medicalProcedureBody.AnimalId,
                 ProcedureName = medicalProcedureBody.ProcedureName,
                 WasSuccess = Boolean.Parse(medicalProcedureBody.WasSuccess),
-                date = DateTime.Parse(medicalProcedureBody.date)
+                Date = DateTime.Parse(medicalProcedureBody.Date)
             };
 
             return medicalProcedure;

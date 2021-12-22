@@ -9,6 +9,6 @@ namespace AnimalShelter.Infrastructure.Commands
         public int AnimalId { set; get; }
         public string ProcedureName { set; get; }
         public string WasSuccess { set; get; }
-        public string date { set; get; }
+        public string Date { set; get; }
     }
 }

@@ -9,7 +9,7 @@ namespace AnimalShelter.Infrastructure.Repositories
 {
     public class DoctorRepository : IDoctorRepository
     {
-        private AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;
 
         public DoctorRepository(AppDbContext appDbContext)
         {

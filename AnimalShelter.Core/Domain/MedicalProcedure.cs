@@ -9,6 +9,6 @@ namespace AnimalShelter.Core.Domain
         public int AnimalId { set; get; }
         public string ProcedureName { set; get; }
         public bool WasSuccess { set; get; }
-        public DateTime date { set; get; }
+        public DateTime Date { set; get; }
     }
 }
