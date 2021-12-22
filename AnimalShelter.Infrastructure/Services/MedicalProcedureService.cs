@@ -1,41 +1,73 @@
-﻿using AnimalShelter.Infrastructure.Commands;
+﻿using AnimalShelter.Core.Domain;
+using AnimalShelter.Core.Repositories;
+using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AnimalShelter.Infrastructure.Services
 {
     public class MedicalProcedureService : IMedicalProcedureService
     {
-        public MedicalProcedureService()
-        {
+        private readonly IMedicalProcedureRepository _medicalProceduresRepository;
 
+        public MedicalProcedureService(IMedicalProcedureRepository medicalProceduresRepository)
+        {
+            _medicalProceduresRepository = medicalProceduresRepository;
         }
 
-        public Task<int> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody)
+        public async Task<int> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody)
         {
-            throw new NotImplementedException();
+            var medicalProcedure = medicalProcedureBody.ToMedicalProcedure();
+
+            var result = await _medicalProceduresRepository.AddAsync(medicalProcedure);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<IEnumerable<MedicalProcedureDTO>> BrowseAll()
+        public async Task<IEnumerable<MedicalProcedureDTO>> BrowseAll()
         {
-            throw new NotImplementedException();
+            var medicalProcedures = await _medicalProceduresRepository.BrowseAllAsync();
+
+            var medicalProceduresDTOs = medicalProcedures.Select(medicalProcedure => ParseMedicalProcedureIntoMedicalProcedureDTO(medicalProcedure));
+
+            return medicalProceduresDTOs;
         }
 
-        public Task<int> DeleteMedicalProcedure(int id)
+        public async Task<int> DeleteMedicalProcedure(int id)
         {
-            throw new NotImplementedException();
+            var result = await _medicalProceduresRepository.DelAsync(id);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<MedicalProcedureDTO> GetMedicalProcedure(int id)
+        public async Task<MedicalProcedureDTO> GetMedicalProcedure(int id)
         {
-            throw new NotImplementedException();
+            var medicalProcedure = await _medicalProceduresRepository.GetAsync(id);
+
+            return ParseMedicalProcedureIntoMedicalProcedureDTO(medicalProcedure);
         }
 
-        public Task<int> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody)
+        public async Task<int> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody)
         {
-            throw new NotImplementedException();
+            var medicalProcedure = medicalProcedureBody.ToMedicalProcedure();
+
+            var result = await _medicalProceduresRepository.UpdateAsync(id, medicalProcedure);
+
+            return await Task.FromResult(result);
+        }
+
+        MedicalProcedureDTO ParseMedicalProcedureIntoMedicalProcedureDTO(MedicalProcedure medicalProcedure)
+        {
+            return new MedicalProcedureDTO()
+            {
+                DoctorId = medicalProcedure.DoctorId,
+                AnimalId = medicalProcedure.AnimalId,
+                ProcedureName = medicalProcedure.ProcedureName,
+                WasSuccess = medicalProcedure.WasSuccess,
+                date = medicalProcedure.date
+            };
         }
     }
 }
