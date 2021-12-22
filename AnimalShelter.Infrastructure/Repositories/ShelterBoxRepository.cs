@@ -16,21 +16,21 @@ namespace AnimalShelter.Infrastructure.Repositories
             this._appDbContext = appDbContext;
         }
 
-        public async Task<bool> AddAsync(ShelterBox shelterBox)
+        public async Task<int> AddAsync(ShelterBox shelterBox)
         {
             try
             {
                 _appDbContext.ShelterBoxes.Add(shelterBox);
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
 
                 await Task.CompletedTask;
-                return true;
+                return await Task.FromResult(result);
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                return await Task.FromResult(-1);
             }
         }
 
@@ -51,23 +51,22 @@ namespace AnimalShelter.Infrastructure.Repositories
 
         }
 
-        public async Task<bool> DelAsync(int id)
+        public async Task<int> DelAsync(int id)
         {
             try
             {
                 _appDbContext.Remove(
                     _appDbContext.ShelterBoxes.FirstOrDefault(shelterBox => shelterBox.Id == id)
                 );
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
 
                 await Task.CompletedTask;
-                return true;
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
-                return false;
+                return await Task.FromResult(-1);
             }
         }
 
@@ -89,7 +88,7 @@ namespace AnimalShelter.Infrastructure.Repositories
             }
         }
 
-        public async Task<bool> UpdateAsync(int shelterBoxId, ShelterBox shelterBoxData)
+        public async Task<int> UpdateAsync(int shelterBoxId, ShelterBox shelterBoxData)
         {
             try
             {
@@ -100,16 +99,15 @@ namespace AnimalShelter.Infrastructure.Repositories
                 editedShelterBox.Id = shelterBoxData.Id;
                 editedShelterBox.AnimalId = shelterBoxData.AnimalId;
 
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
                 await Task.CompletedTask;
 
-                return true;
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
-                return false;
+                return await Task.FromResult(-1);
             }
         }
     }

@@ -16,21 +16,21 @@ namespace AnimalShelter.Infrastructure.Repositories
             this._appDbContext = appDbContext;
         }
 
-        public async Task<bool> AddAsync(Doctor doctor)
+        public async Task<int> AddAsync(Doctor doctor)
         {
             try
             {
                 _appDbContext.Doctors.Add(doctor);
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
 
                 await Task.CompletedTask;
-                return true;
+                return await Task.FromResult(result);
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                return await Task.FromResult(-1);
             }
         }
 
@@ -51,21 +51,20 @@ namespace AnimalShelter.Infrastructure.Repositories
 
         }
 
-        public async Task<bool> DelAsync(int id)
+        public async Task<int> DelAsync(int id)
         {
             try
             {
                 _appDbContext.Remove(_appDbContext.Doctors.FirstOrDefault(doctor => doctor.Id == id));
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
 
                 await Task.CompletedTask;
-                return true;
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
-                return false;
+                return await Task.FromResult(-1);
             }
         }
 
@@ -77,17 +76,16 @@ namespace AnimalShelter.Infrastructure.Repositories
                     _appDbContext.Doctors.FirstOrDefault(doctor => doctor.Id == id)
                 );
 
-                return doctor;
+                return await Task.FromResult(doctor);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
                 return null;
             }
         }
 
-        public async Task<bool> UpdateAsync(int doctorId, Doctor doctorData)
+        public async Task<int> UpdateAsync(int doctorId, Doctor doctorData)
         {
             try
             {
@@ -97,16 +95,15 @@ namespace AnimalShelter.Infrastructure.Repositories
                 editedDoctor.Name = doctorData.Name;
                 editedDoctor.SecondName = doctorData.SecondName;
 
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
                 await Task.CompletedTask;
 
-                return true;
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
-                return false;
+                return await Task.FromResult(-1);
             }
         }
     }

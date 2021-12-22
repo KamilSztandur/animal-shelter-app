@@ -13,7 +13,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         }
 
-        public Task<bool> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody)
+        public Task<int> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody)
         {
             throw new NotImplementedException();
         }
@@ -23,7 +23,7 @@ namespace AnimalShelter.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteMedicalProcedure(int id)
+        public Task<int> DeleteMedicalProcedure(int id)
         {
             throw new NotImplementedException();
         }
@@ -33,7 +33,7 @@ namespace AnimalShelter.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody)
+        public Task<int> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using AnimalShelter.Core.Repositories;
+﻿using AnimalShelter.Core.Domain;
+using AnimalShelter.Core.Repositories;
 using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
 using System;
@@ -17,7 +18,7 @@ namespace AnimalShelter.Infrastructure.Services
             _animalsRepository = animalsRepository;
         }
 
-        public async Task<bool> AddAnimal(CreateAnimal animalBody)
+        public async Task<int> AddAnimal(CreateAnimal animalBody)
         {
             var animal = animalBody.ToAnimal();
 
@@ -30,29 +31,44 @@ namespace AnimalShelter.Infrastructure.Services
         {
             var animals = await _animalsRepository.BrowseAllAsync();
 
-            return animals.Select(animal => new AnimalDTO()
+            var animalsDTOs = animals.Select(animal => ParseAnimalIntoAnimalDTO(animal));
+
+            return animalsDTOs;
+        }
+
+        public async Task<int> DeleteAnimal(int id)
+        {
+            var result = await _animalsRepository.DelAsync(id);
+
+            return await Task.FromResult(result);
+        }
+
+        public async Task<AnimalDTO> GetAnimal(int id)
+        {
+            var animal = await _animalsRepository.GetAsync(id);
+
+            return ParseAnimalIntoAnimalDTO(animal);
+        }
+
+        public async Task<int> UpdateAnimal(int id, CreateAnimal animalBody)
+        {
+            var animal = animalBody.ToAnimal();
+
+            var result = await _animalsRepository.UpdateAsync(id, animal);
+            
+            return await Task.FromResult(result);
+        }
+
+        AnimalDTO ParseAnimalIntoAnimalDTO(Animal animal)
+        {
+            return new AnimalDTO()
             {
                 Id = animal.Id,
-                Name = this.Name,
-                MainDoctorId = this.MainDoctorId,
-                BoxId = this.BoxId,
-                isReadyForAdoption = Boolean.Parse(this.isReadyForAdoption)
-            });
-        }
-
-        public Task<bool> DeleteAnimal(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<AnimalDTO> GetAnimal(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> UpdateAnimal(int id, CreateAnimal animalBody)
-        {
-            throw new NotImplementedException();
+                Name = animal.Name,
+                MainDoctorId = animal.MainDoctorId,
+                BoxId = animal.BoxId,
+                isReadyForAdoption = animal.isReadyForAdoption
+            };
         }
     }
 }

@@ -6,9 +6,9 @@ namespace AnimalShelter.Core.Repositories
 {
     public interface IShelterBoxRepository
     {
-        Task<bool> UpdateAsync(int shelterBoxId, ShelterBox shelterBoxData);
-        Task<bool> DelAsync(int id);
-        Task<bool> AddAsync(ShelterBox shelterBox);
+        Task<int> UpdateAsync(int shelterBoxId, ShelterBox shelterBoxData);
+        Task<int> DelAsync(int id);
+        Task<int> AddAsync(ShelterBox shelterBox);
         Task<ShelterBox> GetAsync(int id);
         Task<IEnumerable<ShelterBox>> BrowseAllAsync();
     }

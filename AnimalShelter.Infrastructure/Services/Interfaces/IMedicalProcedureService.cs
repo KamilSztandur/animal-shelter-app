@@ -7,9 +7,9 @@ namespace AnimalShelter.Infrastructure.Services
 {
     public interface IMedicalProcedureService
     {
-        Task<bool> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody);
-        Task<bool> DeleteMedicalProcedure(int id);
-        Task<bool> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody);
+        Task<int> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody);
+        Task<int> DeleteMedicalProcedure(int id);
+        Task<int> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody);
         Task<MedicalProcedureDTO> GetMedicalProcedure(int id);
         Task<IEnumerable<MedicalProcedureDTO>> BrowseAll();
     }

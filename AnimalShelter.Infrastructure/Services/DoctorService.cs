@@ -13,7 +13,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         }
 
-        public Task<bool> AddDoctor(CreateDoctor doctorBody)
+        public Task<int> AddDoctor(CreateDoctor doctorBody)
         {
             throw new NotImplementedException();
         }
@@ -23,7 +23,7 @@ namespace AnimalShelter.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteDoctor(int id)
+        public Task<int> DeleteDoctor(int id)
         {
             throw new NotImplementedException();
         }
@@ -33,7 +33,7 @@ namespace AnimalShelter.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateDoctor(int id, CreateDoctor doctorBody)
+        public Task<int> UpdateDoctor(int id, CreateDoctor doctorBody)
         {
             throw new NotImplementedException();
         }

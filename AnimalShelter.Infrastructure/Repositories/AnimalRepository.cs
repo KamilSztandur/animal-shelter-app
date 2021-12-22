@@ -16,21 +16,20 @@ namespace AnimalShelter.Infrastructure.Repositories
             this._appDbContext = appDbContext;
         }
 
-        public async Task<bool> AddAsync(Animal animal)
+        public async Task<int> AddAsync(Animal animal)
         {
             try
             {
                 _appDbContext.Animals.Add(animal);
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
 
                 await Task.CompletedTask;
-                return true;
-
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return false;
+                return await Task.FromResult(-1);
             }
         }
 
@@ -51,21 +50,20 @@ namespace AnimalShelter.Infrastructure.Repositories
 
         }
 
-        public async Task<bool> DelAsync(int id)
+        public async Task<int> DelAsync(int id)
         {
             try
             {
                 _appDbContext.Remove(_appDbContext.Animals.FirstOrDefault(animal => animal.Id == id));
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
 
                 await Task.CompletedTask;
-                return true;
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
-                return false;
+                return await Task.FromResult(-1);
             }
         }
 
@@ -82,12 +80,11 @@ namespace AnimalShelter.Infrastructure.Repositories
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
                 return null;
             }
         }
 
-        public async Task<bool> UpdateAsync(int animalId, Animal animalData)
+        public async Task<int> UpdateAsync(int animalId, Animal animalData)
         {
             try
             {
@@ -99,16 +96,15 @@ namespace AnimalShelter.Infrastructure.Repositories
                 editedAnimal.MainDoctorId = animalData.MainDoctorId;
                 editedAnimal.isReadyForAdoption = animalData.isReadyForAdoption;
 
-                _appDbContext.SaveChanges();
+                var result = _appDbContext.SaveChanges();
                 await Task.CompletedTask;
 
-                return true;
+                return await Task.FromResult(result);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
-                return false;
+                return await Task.FromResult(-1);
             }
         }
     }

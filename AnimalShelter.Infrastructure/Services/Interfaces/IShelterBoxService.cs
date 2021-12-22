@@ -7,9 +7,9 @@ namespace AnimalShelter.Infrastructure.Services
 {
     public interface IShelterBoxService
     {
-        Task<bool> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody);
-        Task<bool> DeleteShelterBox(int id);
-        Task<bool> AddShelterBox(CreateShelterBox shelterBoxBody);
+        Task<int> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody);
+        Task<int> DeleteShelterBox(int id);
+        Task<int> AddShelterBox(CreateShelterBox shelterBoxBody);
         Task<ShelterBoxDTO> GetShelterBox(int id);
         Task<IEnumerable<ShelterBoxDTO>> BrowseAll();
     }

@@ -13,7 +13,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         }
 
-        public Task<bool> AddShelterBox(CreateShelterBox shelterBoxBody)
+        public Task<int> AddShelterBox(CreateShelterBox shelterBoxBody)
         {
             throw new NotImplementedException();
         }
@@ -23,7 +23,7 @@ namespace AnimalShelter.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteShelterBox(int id)
+        public Task<int> DeleteShelterBox(int id)
         {
             throw new NotImplementedException();
         }
@@ -33,7 +33,7 @@ namespace AnimalShelter.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody)
+        public Task<int> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody)
         {
             throw new NotImplementedException();
         }

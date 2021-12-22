@@ -6,9 +6,9 @@ namespace AnimalShelter.Core.Repositories
 {
     public interface IMedicalProcedureRepository
     {
-        Task<bool> UpdateAsync(int medicalProcedureId, MedicalProcedure medicalProcedureData);
-        Task<bool> DelAsync(int id);
-        Task<bool> AddAsync(MedicalProcedure medicalProcedure);
+        Task<int> UpdateAsync(int medicalProcedureId, MedicalProcedure medicalProcedureData);
+        Task<int> DelAsync(int id);
+        Task<int> AddAsync(MedicalProcedure medicalProcedure);
         Task<MedicalProcedure> GetAsync(int id);
         Task<IEnumerable<MedicalProcedure>> BrowseAllAsync();
     }
