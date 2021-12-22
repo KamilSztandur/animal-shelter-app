@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AnimalShelter.Core.Domain;
+using System;
 
 namespace AnimalShelter.Infrastructure.Commands
 {
@@ -10,5 +9,18 @@ namespace AnimalShelter.Infrastructure.Commands
         int MainDoctorId { set; get; }
         string Name { set; get; }
         string isReadyForAdoption { set; get; }
+
+        public Animal ToAnimal()
+        {
+            Animal animal = new Animal()
+            {
+                Name = this.Name,
+                MainDoctorId = this.MainDoctorId,
+                BoxId = this.BoxId,
+                isReadyForAdoption = Boolean.Parse(this.isReadyForAdoption)
+            };
+
+            return animal;
+        }
     }
 }

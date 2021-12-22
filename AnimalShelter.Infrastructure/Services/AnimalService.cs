@@ -1,4 +1,5 @@
-﻿using AnimalShelter.Infrastructure.Commands;
+﻿using AnimalShelter.Core.Repositories;
+using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,11 @@ namespace AnimalShelter.Infrastructure.Services
 {
     public class AnimalService : IAnimalService
     {
-        public AnimalService()
-        {
+        private readonly IAnimalRepository _animalsRepository;
 
+        public AnimalService(IAnimalRepository animalsRepository)
+        {
+            _animalsRepository = animalsRepository;
         }
 
         public Task<bool> AddAnimal(CreateAnimal animalBody)
