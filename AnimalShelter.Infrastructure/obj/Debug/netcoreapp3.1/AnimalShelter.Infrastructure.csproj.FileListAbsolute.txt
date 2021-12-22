@@ -1,0 +1,10 @@
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\bin\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.deps.json
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\bin\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.dll
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\bin\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.pdb
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.AssemblyInfo.cs
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.dll
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.pdb
