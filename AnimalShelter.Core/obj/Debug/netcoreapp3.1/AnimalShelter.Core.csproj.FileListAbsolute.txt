@@ -1,0 +1,9 @@
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\bin\Debug\netcoreapp3.1\AnimalShelter.Core.deps.json
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\bin\Debug\netcoreapp3.1\AnimalShelter.Core.dll
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\bin\Debug\netcoreapp3.1\AnimalShelter.Core.pdb
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.AssemblyInfoInputs.cache
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.AssemblyInfo.cs
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.csproj.CoreCompileInputs.cache
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.dll
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.pdb
