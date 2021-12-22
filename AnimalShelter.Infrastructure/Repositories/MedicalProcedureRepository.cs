@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,29 +16,105 @@ namespace AnimalShelter.Infrastructure.Repositories
             this._appDbContext = appDbContext;
         }
 
-        public Task<bool> AddAsync(MedicalProcedure shelterBox)
+        public async Task<bool> AddAsync(MedicalProcedure medicalProcedure)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.MedicalProcedures.Add(medicalProcedure);
+                _appDbContext.SaveChanges();
+
+                await Task.CompletedTask;
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
 
-        public Task<IEnumerable<MedicalProcedure>> BrowseAllAsync()
+        public async Task<IEnumerable<MedicalProcedure>> BrowseAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                IEnumerable<MedicalProcedure> medicalProcedures = await Task.FromResult(_appDbContext.MedicalProcedures);
+
+                return medicalProcedures;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new List<MedicalProcedure>();
+            }
+
         }
 
-        public Task<bool> DelAsync(int id)
+        public async Task<bool> DelAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.Remove(
+                    _appDbContext.MedicalProcedures.FirstOrDefault(medicalProcedure => medicalProcedure.Id == id)
+                );
+                _appDbContext.SaveChanges();
+
+                await Task.CompletedTask;
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
         }
 
-        public Task<MedicalProcedure> GetAsync(int id)
+        public async Task<MedicalProcedure> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                MedicalProcedure medicalProcedure = await Task.FromResult(
+                    _appDbContext.MedicalProcedures.FirstOrDefault(medicalProcedure => medicalProcedure.Id == id)
+                );
+
+                return medicalProcedure;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return null;
+            }
         }
 
-        public Task<bool> UpdateAsync(int shelterBoxId, MedicalProcedure shelterBoxData)
+        public async Task<bool> UpdateAsync(int medicalProcedureId, MedicalProcedure medicalProcedureData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var editedMedicalProcedure = _appDbContext.MedicalProcedures.FirstOrDefault(
+                    medicalProcedure => medicalProcedure.Id == medicalProcedureId
+                );
+
+                editedMedicalProcedure.Id = medicalProcedureData.Id;
+                editedMedicalProcedure.AnimalId = medicalProcedureData.AnimalId;
+                editedMedicalProcedure.DoctorId = medicalProcedureData.DoctorId
+                editedMedicalProcedure.ProcedureName = medicalProcedureData.ProcedureName;
+                editedMedicalProcedure.date = medicalProcedureData.date;
+                editedMedicalProcedure.WasSuccess = medicalProcedureData.WasSuccess;
+
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
         }
     }
 }
