@@ -157,3 +157,4 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debu
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Doctor\Index.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Doctor\Create.cshtml.g.cs
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Doctor\Edit.cshtml.g.cs
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Doctor\Delete.cshtml.g.cs
