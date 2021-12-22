@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AnimalShelter.Core.Domain
+namespace AnimalShelter.Infrastructure.Commands
 {
-    public class MedicalProcedure
+    public class CreateMedicalProcedure
     {
-        int Id { set; get; }
         int DoctorId { set; get; }
         int AnimalId { set; get; }
         string ProcedureName { set; get; }
-        bool WasSuccess { set; get; }
-        DateTime date { set; get; }
-}
+        string WasSuccess { set; get; }
+        string date { set; get; }
+    }
 }

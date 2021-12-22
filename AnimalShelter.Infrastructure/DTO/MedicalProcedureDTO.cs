@@ -1,4 +1,6 @@
-﻿namespace AnimalShelter.Infrastructure.DTO
+﻿using System;
+
+namespace AnimalShelter.Infrastructure.DTO
 {
     class MedicalProcedureDTO
     {
@@ -7,5 +9,6 @@
         int AnimalId { set; get; }
         string ProcedureName { set; get; }
         bool WasSuccess { set; get; }
+        DateTime date { set; get; }
     }
 }

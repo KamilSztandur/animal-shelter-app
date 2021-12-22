@@ -7,4 +7,3 @@
         string SecondName { set; get; }
     }
 }
-}
