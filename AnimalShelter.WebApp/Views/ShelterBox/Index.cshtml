@@ -1,24 +1,27 @@
 ﻿@model IEnumerable<AnimalShelter.WebApp.Models.ShelterBoxVM>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Shelter boxes";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="container" style="display: flex">
+    <h1 style="width: 50%">Shelter boxes</h1>
+    <p style="width: 50%" align="right">
+        <button type="button" onclick="location.href='@Url.Action("Create", "ShelterBox")'" style="padding: 10px; background-color: orangered; color: white; border: 0px; border-radius: 5px">Register new shelter box</button>
+    </p>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AnimalId)
+                Animal's ID
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
