@@ -113,7 +113,7 @@ namespace AnimalShelter.WebApp.Controllers
             }
             catch (Exception ex)
             {
-                return View(ex);
+                return RedirectToAction(nameof(Index));
             }
         }
 
