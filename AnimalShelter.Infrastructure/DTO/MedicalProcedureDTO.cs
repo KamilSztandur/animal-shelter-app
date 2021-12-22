@@ -2,7 +2,7 @@
 
 namespace AnimalShelter.Infrastructure.DTO
 {
-    class MedicalProcedureDTO
+    public class MedicalProcedureDTO
     {
         int Id { set; get; }
         int DoctorId { set; get; }

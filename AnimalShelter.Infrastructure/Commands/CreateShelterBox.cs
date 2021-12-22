@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AnimalShelter.Infrastructure.Commands
 {
-    class CreateShelterBox
+    public class CreateShelterBox
     {
         int AnimalID { set; get; }
     }
