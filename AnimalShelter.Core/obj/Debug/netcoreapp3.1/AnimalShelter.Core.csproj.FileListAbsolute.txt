@@ -7,3 +7,4 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.csproj.CoreCompileInputs.cache
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.dll
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.pdb
+C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Core\obj\Debug\netcoreapp3.1\AnimalShelter.Core.csproj.AssemblyReference.cache
