@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,29 +16,100 @@ namespace AnimalShelter.Infrastructure.Repositories
             this._appDbContext = appDbContext;
         }
 
-        public Task<bool> AddAsync(Animal animal)
+        public async Task<bool> AddAsync(Animal animal)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.Animals.Add(animal);
+                _appDbContext.SaveChanges();
+
+                await Task.CompletedTask;
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
 
-        public Task<IEnumerable<Animal>> BrowseAllAsync()
+        public async Task<IEnumerable<Animal>> BrowseAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                IEnumerable<Animal> animals = await Task.FromResult(_appDbContext.Animals);
+
+                return animals;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new List<Animal>();
+            }
+
         }
 
-        public Task<bool> DelAsync(int id)
+        public async Task<bool> DelAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.Remove(_appDbContext.Animals.FirstOrDefault(animal => animal.Id == id));
+                _appDbContext.SaveChanges();
+
+                await Task.CompletedTask;
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
         }
 
-        public Task<Animal> GetAsync(int id)
+        public async Task<Animal> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Animal animal = await Task.FromResult(
+                    _appDbContext.Animals.FirstOrDefault(animal => animal.Id == id)
+                );
+
+                return animal; 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return null;
+            }
         }
 
-        public Task<bool> UpdateAsync(int animalId, Animal animalData)
+        public async Task<bool> UpdateAsync(int animalId, Animal animalData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var editedAnimal = _appDbContext.Animals.FirstOrDefault(animal => animal.Id == animalId);
+
+                editedAnimal.Id = animalData.Id;
+                editedAnimal.Name = animalData.Name;
+                editedAnimal.BoxId = animalData.BoxId;
+                editedAnimal.MainDoctorId = animalData.MainDoctorId;
+                editedAnimal.isReadyForAdoption = animalData.isReadyForAdoption;
+
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
         }
     }
 }

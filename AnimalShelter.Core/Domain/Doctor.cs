@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AnimalShelter.Core.Domain
+﻿namespace AnimalShelter.Core.Domain
 {
     public class Doctor
-    {   
-        int Id { set; get; }
-        string Name { set; get; }
-        string SecondName { set; get; }
+    {
+        public int Id { set; get; }
+        public string Name { set; get; }
+        public string SecondName { set; get; }
     }
 }
