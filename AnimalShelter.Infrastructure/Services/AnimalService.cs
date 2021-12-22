@@ -1,6 +1,5 @@
 ﻿using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
-using AnimalShelter.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
