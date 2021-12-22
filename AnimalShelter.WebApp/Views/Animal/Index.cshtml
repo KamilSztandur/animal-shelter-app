@@ -1,58 +1,70 @@
-﻿@model IEnumerable<AnimalShelter.WebApp.Models.AnimalVM>
-
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
+﻿
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+
+@model IEnumerable<AnimalShelter.WebApp.Models.AnimalVM>
+
+@{
+    ViewData["Title"] = "Animals in shelter";
+}
+
+<div class="container" style="display: flex">
+    <h1 style="width: 50%">Animals in shelter</h1>
+    <p style="width: 50%" align="right">
+        <button type="button" onclick="location.href='@Url.Action("Create", "Animal")'" style="padding: 10px; background-color: #008CBA; color: white; border: 0px; border-radius: 5px">Register new animal</button>
+    </p>
+</div>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BoxId)
+                Shelter box ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MainDoctorId)
+                Main doctor ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsReadyForAdoption)
+                Ready for adoption
             </th>
-            <th></th>
+            <th>
+                Quick actions
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BoxId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MainDoctorId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsReadyForAdoption)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainDoctorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @(item.IsReadyForAdoption? "YES" : "NO")
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
