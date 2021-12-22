@@ -26,7 +26,7 @@ namespace AnimalShelter.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTrainer(int id)
+        public async Task<IActionResult> GetAnimal(int id)
         {
             AnimalDTO z = await _animalService.GetAnimal(id);
 
@@ -34,7 +34,7 @@ namespace AnimalShelter.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTrainer([FromBody] CreateAnimal animal)
+        public async Task<IActionResult> AddAnimal([FromBody] CreateAnimal animal)
         {
             var result = await _animalService.AddAnimal(animal);
 
@@ -42,7 +42,7 @@ namespace AnimalShelter.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTrainer([FromBody] CreateAnimal animal, int id)
+        public async Task<IActionResult> UpdateAnimal([FromBody] CreateAnimal animal, int id)
         {
             var result = await _animalService.UpdateAnimal(id, animal);
 
@@ -50,7 +50,7 @@ namespace AnimalShelter.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTrainer(int id)
+        public async Task<IActionResult> DeleteAnimal(int id)
         {
             var result = await _animalService.DeleteAnimal(id);
 
