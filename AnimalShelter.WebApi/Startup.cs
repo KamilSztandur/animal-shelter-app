@@ -1,7 +1,11 @@
+using AnimalShelter.Core.Repositories;
+using AnimalShelter.Infrastructure.Repositories;
+using AnimalShelter.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +30,24 @@ namespace AnimalShelter.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IAnimalRepository, AnimalRepository>();
+            services.AddScoped<IAnimalService, AnimalService>();
+
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
+            services.AddScoped<IDoctorService, DoctorService>();
+
+            services.AddScoped<IShelterBoxRepository, ShelterBoxRepository>();
+            services.AddScoped<IShelterBoxService, ShelterBoxService>();
+
+            services.AddScoped<IMedicalProcedureRepository, MedicalProcedureRepository>();
+            services.AddScoped<IMedicalProcedureService, MedicalProcedureService>();
+
+            services.AddDbContext<AppDbContext>(
+                options => options.UseSqlServer(
+                    Configuration.GetConnectionString("AnimalShelterConnectionString")
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,11 +9,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <ProjectReference Include="..\AnimalShelter.Core\AnimalShelter.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnimalShelter.Core\AnimalShelter.Core.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
