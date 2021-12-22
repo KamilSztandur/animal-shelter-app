@@ -1,41 +1,71 @@
-﻿using AnimalShelter.Infrastructure.Commands;
+﻿using AnimalShelter.Core.Domain;
+using AnimalShelter.Core.Repositories;
+using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AnimalShelter.Infrastructure.Services
 {
     public class DoctorService : IDoctorService
     {
-        public DoctorService()
-        {
+        private readonly IDoctorRepository _doctorsRepository;
 
+        public DoctorService(IDoctorRepository doctorsRepository)
+        {
+            _doctorsRepository = doctorsRepository;
         }
 
-        public Task<int> AddDoctor(CreateDoctor doctorBody)
+        public async Task<int> AddDoctor(CreateDoctor doctorBody)
         {
-            throw new NotImplementedException();
+            var doctor = doctorBody.ToDoctor();
+
+            var result = await _doctorsRepository.AddAsync(doctor);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<IEnumerable<DoctorDTO>> BrowseAll()
+        public async Task<IEnumerable<DoctorDTO>> BrowseAll()
         {
-            throw new NotImplementedException();
+            var doctors = await _doctorsRepository.BrowseAllAsync();
+
+            var doctorsDTOs = doctors.Select(doctor => ParseDoctorIntoDoctorDTO(doctor));
+
+            return doctorsDTOs;
         }
 
-        public Task<int> DeleteDoctor(int id)
+        public async Task<int> DeleteDoctor(int id)
         {
-            throw new NotImplementedException();
+            var result = await _doctorsRepository.DelAsync(id);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<DoctorDTO> GetDoctor(int id)
+        public async Task<DoctorDTO> GetDoctor(int id)
         {
-            throw new NotImplementedException();
+            var doctor = await _doctorsRepository.GetAsync(id);
+
+            return ParseDoctorIntoDoctorDTO(doctor);
         }
 
-        public Task<int> UpdateDoctor(int id, CreateDoctor doctorBody)
+        public async Task<int> UpdateDoctor(int id, CreateDoctor doctorBody)
         {
-            throw new NotImplementedException();
+            var doctor = doctorBody.ToDoctor();
+
+            var result = await _doctorsRepository.UpdateAsync(id, doctor);
+
+            return await Task.FromResult(result);
+        }
+
+        DoctorDTO ParseDoctorIntoDoctorDTO(Doctor doctor)
+        {
+            return new DoctorDTO()
+            {
+                Id = doctor.Id,
+                Name = doctor.Name,
+                SecondName = doctor.SecondName,
+            };
         }
     }
 }
