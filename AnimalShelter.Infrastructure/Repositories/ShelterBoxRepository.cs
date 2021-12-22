@@ -96,7 +96,6 @@ namespace AnimalShelter.Infrastructure.Repositories
                     shelterBox => shelterBox.Id == shelterBoxId
                 );
 
-                editedShelterBox.Id = shelterBoxData.Id;
                 editedShelterBox.AnimalId = shelterBoxData.AnimalId;
 
                 var result = _appDbContext.SaveChanges();

@@ -91,7 +91,6 @@ namespace AnimalShelter.Infrastructure.Repositories
             {
                 var editedDoctor = _appDbContext.Doctors.FirstOrDefault(doctor => doctor.Id == doctorId);
 
-                editedDoctor.Id = doctorData.Id;
                 editedDoctor.Name = doctorData.Name;
                 editedDoctor.SecondName = doctorData.SecondName;
 

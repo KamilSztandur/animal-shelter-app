@@ -94,7 +94,6 @@ namespace AnimalShelter.Infrastructure.Repositories
                     medicalProcedure => medicalProcedure.Id == medicalProcedureId
                 );
 
-                editedMedicalProcedure.Id = medicalProcedureData.Id;
                 editedMedicalProcedure.AnimalId = medicalProcedureData.AnimalId;
                 editedMedicalProcedure.DoctorId = medicalProcedureData.DoctorId;
                 editedMedicalProcedure.ProcedureName = medicalProcedureData.ProcedureName;

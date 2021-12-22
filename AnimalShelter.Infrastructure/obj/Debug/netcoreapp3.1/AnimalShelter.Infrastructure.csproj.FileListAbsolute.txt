@@ -13,4 +13,3 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\bin\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.runtimeconfig.json
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\bin\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.runtimeconfig.dev.json
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.genruntimeconfig.cache
-C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.Infrastructure\obj\Debug\netcoreapp3.1\AnimalShelter.Infrastructure.csproj.CopyComplete
