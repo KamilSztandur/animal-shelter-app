@@ -20,7 +20,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> AddAnimal(CreateAnimal animalBody)
         {
-            var animal = animalBody.ToAnimal();
+            var animal = ParseCreateAnimalIntoAnimal(animalBody);
 
             var result = await _animalsRepository.AddAsync(animal);
 
@@ -52,7 +52,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> UpdateAnimal(int id, CreateAnimal animalBody)
         {
-            var animal = animalBody.ToAnimal();
+            var animal = ParseCreateAnimalIntoAnimal(animalBody);
 
             var result = await _animalsRepository.UpdateAsync(id, animal);
             
@@ -67,8 +67,21 @@ namespace AnimalShelter.Infrastructure.Services
                 Name = animal.Name,
                 MainDoctorId = animal.MainDoctorId,
                 BoxId = animal.BoxId,
-                isReadyForAdoption = animal.isReadyForAdoption
+                IsReadyForAdoption = animal.IsReadyForAdoption
             };
+        }
+
+        Animal ParseCreateAnimalIntoAnimal(CreateAnimal animalBody)
+        {
+            Animal animal = new Animal()
+            {
+                Name = animalBody.Name,
+                MainDoctorId = animalBody.MainDoctorId,
+                BoxId = animalBody.BoxId,
+                IsReadyForAdoption = Boolean.Parse(animalBody.IsReadyForAdoption)
+            };
+
+            return animal;
         }
     }
 }

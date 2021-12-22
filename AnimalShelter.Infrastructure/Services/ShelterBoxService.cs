@@ -19,7 +19,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> AddShelterBox(CreateShelterBox shelterBoxBody)
         {
-            var shelterBox = shelterBoxBody.ToShelterBox();
+            var shelterBox = ParseCreateShelterBoxIntoShelterBox(shelterBoxBody);
 
             var result = await _shelterBoxsRepository.AddAsync(shelterBox);
 
@@ -51,7 +51,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody)
         {
-            var shelterBox = shelterBoxBody.ToShelterBox();
+            var shelterBox = ParseCreateShelterBoxIntoShelterBox(shelterBoxBody);
 
             var result = await _shelterBoxsRepository.UpdateAsync(id, shelterBox);
 
@@ -65,6 +65,16 @@ namespace AnimalShelter.Infrastructure.Services
                 Id = shelterBox.Id,
                 AnimalId = shelterBox.AnimalId
             };
+        }
+
+        ShelterBox ParseCreateShelterBoxIntoShelterBox(CreateShelterBox shelterBoxBody)
+        {
+            ShelterBox shelterBox = new ShelterBox()
+            {
+                AnimalId = shelterBoxBody.AnimalId
+            };
+
+            return shelterBox;
         }
     }
 }

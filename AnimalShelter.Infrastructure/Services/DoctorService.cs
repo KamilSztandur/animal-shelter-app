@@ -19,7 +19,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> AddDoctor(CreateDoctor doctorBody)
         {
-            var doctor = doctorBody.ToDoctor();
+            var doctor = ParseCreateDoctorIntoDoctor(doctorBody);
 
             var result = await _doctorsRepository.AddAsync(doctor);
 
@@ -51,7 +51,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> UpdateDoctor(int id, CreateDoctor doctorBody)
         {
-            var doctor = doctorBody.ToDoctor();
+            var doctor = ParseCreateDoctorIntoDoctor(doctorBody);
 
             var result = await _doctorsRepository.UpdateAsync(id, doctor);
 
@@ -66,6 +66,17 @@ namespace AnimalShelter.Infrastructure.Services
                 Name = doctor.Name,
                 SecondName = doctor.SecondName,
             };
+        }
+
+        Doctor ParseCreateDoctorIntoDoctor(CreateDoctor doctorBody)
+        {
+            Doctor doctor = new Doctor()
+            {
+                Name = doctorBody.Name,
+                SecondName = doctorBody.SecondName
+            };
+
+            return doctor;
         }
     }
 }

@@ -2,6 +2,7 @@
 using AnimalShelter.Core.Repositories;
 using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> AddMedicalProcedure(CreateMedicalProcedure medicalProcedureBody)
         {
-            var medicalProcedure = medicalProcedureBody.ToMedicalProcedure();
+            var medicalProcedure = ParseCreateMedicalProcedureIntoMedicalProcedure(medicalProcedureBody);
 
             var result = await _medicalProceduresRepository.AddAsync(medicalProcedure);
 
@@ -51,7 +52,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> UpdateMedicalProcedure(int id, CreateMedicalProcedure medicalProcedureBody)
         {
-            var medicalProcedure = medicalProcedureBody.ToMedicalProcedure();
+            var medicalProcedure = ParseCreateMedicalProcedureIntoMedicalProcedure(medicalProcedureBody);
 
             var result = await _medicalProceduresRepository.UpdateAsync(id, medicalProcedure);
 
@@ -68,6 +69,20 @@ namespace AnimalShelter.Infrastructure.Services
                 WasSuccess = medicalProcedure.WasSuccess,
                 date = medicalProcedure.date
             };
+        }
+
+        MedicalProcedure ParseCreateMedicalProcedureIntoMedicalProcedure(CreateMedicalProcedure medicalProcedureBody)
+        {
+            MedicalProcedure medicalProcedure = new MedicalProcedure()
+            {
+                DoctorId = medicalProcedureBody.DoctorId,
+                AnimalId = medicalProcedureBody.AnimalId,
+                ProcedureName = medicalProcedureBody.ProcedureName,
+                WasSuccess = Boolean.Parse(medicalProcedureBody.WasSuccess),
+                date = DateTime.Parse(medicalProcedureBody.date)
+            };
+
+            return medicalProcedure;
         }
     }
 }

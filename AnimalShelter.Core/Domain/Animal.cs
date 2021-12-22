@@ -6,6 +6,6 @@
         public int BoxId { set; get; }
         public int MainDoctorId { set; get; }
         public string Name { set; get; }
-        public bool isReadyForAdoption { set; get; }
+        public bool IsReadyForAdoption { set; get; }
     }
 }

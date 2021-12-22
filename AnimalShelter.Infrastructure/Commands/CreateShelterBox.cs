@@ -5,15 +5,5 @@ namespace AnimalShelter.Infrastructure.Commands
     public class CreateShelterBox
     {
         public int AnimalId { set; get; }
-
-        public ShelterBox ToShelterBox()
-        {
-            ShelterBox shelterBox = new ShelterBox()
-            {
-                AnimalId = this.AnimalId
-            };
-
-            return shelterBox;
-        }
     }
 }

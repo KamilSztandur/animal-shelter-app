@@ -94,7 +94,7 @@ namespace AnimalShelter.Infrastructure.Repositories
                 editedAnimal.Name = animalData.Name;
                 editedAnimal.BoxId = animalData.BoxId;
                 editedAnimal.MainDoctorId = animalData.MainDoctorId;
-                editedAnimal.isReadyForAdoption = animalData.isReadyForAdoption;
+                editedAnimal.IsReadyForAdoption = animalData.IsReadyForAdoption;
 
                 var result = _appDbContext.SaveChanges();
                 await Task.CompletedTask;
