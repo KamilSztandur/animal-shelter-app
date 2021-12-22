@@ -1,34 +1,35 @@
 ﻿@model IEnumerable<AnimalShelter.WebApp.Models.MedicalProcedureVM>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Medical Procedures";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="container" style="display: flex">
+    <h1 style="width: 50%">Medical procedures</h1>
+    <p style="width: 50%" align="right">
+        <button type="button" onclick="location.href='@Url.Action("Create", "MedicalProcedure")'" style="padding: 10px; background-color: forestgreen; color: white; border: 0px; border-radius: 5px">Register new medical procedure</button>
+    </p>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DoctorId)
+                Doctor's ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AnimalId)
+                Animal's ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProcedureName)
+                Procedure Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WasSuccess)
+                Was Successful
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                Date
             </th>
             <th></th>
         </tr>
@@ -49,7 +50,7 @@
                 @Html.DisplayFor(modelItem => item.ProcedureName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WasSuccess)
+                @(item.WasSuccess? "YES" : "NO")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
