@@ -1,24 +1,23 @@
 ﻿@model AnimalShelter.WebApp.Models.DoctorVM
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Register new doctor";
 }
 
-<h1>Create</h1>
+<h2>Register new doctor</h2>
 
-<h4>DoctorVM</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                Name:
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecondName" class="control-label"></label>
+                Second Name:
                 <input asp-for="SecondName" class="form-control" />
                 <span asp-validation-for="SecondName" class="text-danger"></span>
             </div>
