@@ -6,7 +6,7 @@ namespace AnimalShelter.Infrastructure.Commands
     {
         public int AnimalId { set; get; }
 
-        public ShelterBox ToMedicalProcedure()
+        public ShelterBox ToShelterBox()
         {
             ShelterBox shelterBox = new ShelterBox()
             {

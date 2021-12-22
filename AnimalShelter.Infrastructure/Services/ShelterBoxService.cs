@@ -1,41 +1,70 @@
-﻿using AnimalShelter.Infrastructure.Commands;
+﻿using AnimalShelter.Core.Domain;
+using AnimalShelter.Core.Repositories;
+using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AnimalShelter.Infrastructure.Services
 {
     public class ShelterBoxService : IShelterBoxService
     {
-        public ShelterBoxService()
-        {
+        private readonly IShelterBoxRepository _shelterBoxsRepository;
 
+        public ShelterBoxService(IShelterBoxRepository shelterBoxsRepository)
+        {
+            _shelterBoxsRepository = shelterBoxsRepository;
         }
 
-        public Task<int> AddShelterBox(CreateShelterBox shelterBoxBody)
+        public async Task<int> AddShelterBox(CreateShelterBox shelterBoxBody)
         {
-            throw new NotImplementedException();
+            var shelterBox = shelterBoxBody.ToShelterBox();
+
+            var result = await _shelterBoxsRepository.AddAsync(shelterBox);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<IEnumerable<ShelterBoxDTO>> BrowseAll()
+        public async Task<IEnumerable<ShelterBoxDTO>> BrowseAll()
         {
-            throw new NotImplementedException();
+            var shelterBoxs = await _shelterBoxsRepository.BrowseAllAsync();
+
+            var shelterBoxsDTOs = shelterBoxs.Select(shelterBox => ParseShelterBoxIntoShelterBoxDTO(shelterBox));
+
+            return shelterBoxsDTOs;
         }
 
-        public Task<int> DeleteShelterBox(int id)
+        public async Task<int> DeleteShelterBox(int id)
         {
-            throw new NotImplementedException();
+            var result = await _shelterBoxsRepository.DelAsync(id);
+
+            return await Task.FromResult(result);
         }
 
-        public Task<ShelterBoxDTO> GetShelterBox(int id)
+        public async Task<ShelterBoxDTO> GetShelterBox(int id)
         {
-            throw new NotImplementedException();
+            var shelterBox = await _shelterBoxsRepository.GetAsync(id);
+
+            return ParseShelterBoxIntoShelterBoxDTO(shelterBox);
         }
 
-        public Task<int> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody)
+        public async Task<int> UpdateShelterBox(int id, CreateShelterBox shelterBoxBody)
         {
-            throw new NotImplementedException();
+            var shelterBox = shelterBoxBody.ToShelterBox();
+
+            var result = await _shelterBoxsRepository.UpdateAsync(id, shelterBox);
+
+            return await Task.FromResult(result);
+        }
+
+        ShelterBoxDTO ParseShelterBoxIntoShelterBoxDTO(ShelterBox shelterBox)
+        {
+            return new ShelterBoxDTO()
+            {
+                Id = shelterBox.Id,
+                AnimalId = shelterBox.AnimalId
+            };
         }
     }
 }
