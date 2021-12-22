@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,29 +16,101 @@ namespace AnimalShelter.Infrastructure.Repositories
             this._appDbContext = appDbContext;
         }
 
-        public Task<bool> AddAsync(ShelterBox shelterBox)
+        public async Task<bool> AddAsync(ShelterBox shelterBox)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.ShelterBoxes.Add(shelterBox);
+                _appDbContext.SaveChanges();
+
+                await Task.CompletedTask;
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
 
-        public Task<IEnumerable<ShelterBox>> BrowseAllAsync()
+        public async Task<IEnumerable<ShelterBox>> BrowseAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                IEnumerable<ShelterBox> shelterBoxs = await Task.FromResult(_appDbContext.ShelterBoxes);
+
+                return shelterBoxs;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new List<ShelterBox>();
+            }
+
         }
 
-        public Task<bool> DelAsync(int id)
+        public async Task<bool> DelAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _appDbContext.Remove(
+                    _appDbContext.ShelterBoxes.FirstOrDefault(shelterBox => shelterBox.Id == id)
+                );
+                _appDbContext.SaveChanges();
+
+                await Task.CompletedTask;
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
         }
 
-        public Task<ShelterBox> GetAsync(int id)
+        public async Task<ShelterBox> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                ShelterBox shelterBox = await Task.FromResult(
+                    _appDbContext.ShelterBoxes.FirstOrDefault(shelterBox => shelterBox.Id == id)
+                );
+
+                return shelterBox;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return null;
+            }
         }
 
-        public Task<bool> UpdateAsync(int shelterBoxId, ShelterBox shelterBoxData)
+        public async Task<bool> UpdateAsync(int shelterBoxId, ShelterBox shelterBoxData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var editedShelterBox = _appDbContext.ShelterBoxes.FirstOrDefault(
+                    shelterBox => shelterBox.Id == shelterBoxId
+                );
+
+                editedShelterBox.Id = shelterBoxData.Id;
+                editedShelterBox.AnimalId = shelterBoxData.AnimalId;
+
+                _appDbContext.SaveChanges();
+                await Task.CompletedTask;
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
         }
     }
 }

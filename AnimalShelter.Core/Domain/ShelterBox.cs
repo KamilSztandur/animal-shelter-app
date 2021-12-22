@@ -3,6 +3,6 @@
     public class ShelterBox
     {
         public int Id { set; get; }
-        public int AnimalID { set; get; }
+        public int AnimalId { set; get; }
     }
 }

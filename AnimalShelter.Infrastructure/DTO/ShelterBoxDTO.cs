@@ -3,6 +3,6 @@
     public class ShelterBoxDTO
     {
         int Id { set; get; }
-        int AnimalID { set; get; }
+        int AnimalId { set; get; }
     }
 }

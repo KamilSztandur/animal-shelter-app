@@ -6,6 +6,6 @@ namespace AnimalShelter.Infrastructure.Commands
 {
     public class CreateShelterBox
     {
-        int AnimalID { set; get; }
+        int AnimalId { set; get; }
     }
 }
