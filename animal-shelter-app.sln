@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalShelter.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalShelter.WebApp", "AnimalShelter.WebApp\AnimalShelter.WebApp.csproj", "{E540C1FC-AC5D-4EEA-927F-3D49E2FE96EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalShelter.WebApi", "AnimalShelter.WebApi\AnimalShelter.WebApi.csproj", "{F411811F-1557-48E5-9289-61A6C9F8C897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimalShelter.WebApi", "AnimalShelter.WebApi\AnimalShelter.WebApi.csproj", "{F411811F-1557-48E5-9289-61A6C9F8C897}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalShelter.Test", "AnimalShelter.Test\AnimalShelter.Test.csproj", "{9D3D3403-26E4-4A7C-9A0F-E9F446DC4A93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F411811F-1557-48E5-9289-61A6C9F8C897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F411811F-1557-48E5-9289-61A6C9F8C897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F411811F-1557-48E5-9289-61A6C9F8C897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D3D3403-26E4-4A7C-9A0F-E9F446DC4A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D3D3403-26E4-4A7C-9A0F-E9F446DC4A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D3D3403-26E4-4A7C-9A0F-E9F446DC4A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D3D3403-26E4-4A7C-9A0F-E9F446DC4A93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

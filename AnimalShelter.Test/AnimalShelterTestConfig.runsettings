@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+  <TestRunParameters>
+    <Parameter name ="FirstShelterBoxId" value="1" />
+    <Parameter name ="FirstShelterBoxAnimalId" value="1" />
+    <Parameter name ="SecondShelterBoxId" value="2" />
+    <Parameter name ="SecondShelterBoxAnimalId" value="2" />
+    <Parameter name ="ThirdShelterBoxId" value="3" />
+    <Parameter name ="ThirdShelterBoxAnimalId" value="3" />
+    <Parameter name ="NonExistingAnimalShelterId" value="999" />
+    <Parameter name ="NonExistingAnimalId" value="420" />
+  </TestRunParameters>
+</RunSettings>
