@@ -63,4 +63,3 @@ C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApi\bin\Debu
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApi\bin\Debug\netcoreapp3.1\AnimalShelter.Core.pdb
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApi\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\kamil\Documents\GitHub\animal-shelter-app\AnimalShelter.WebApi\obj\Debug\netcoreapp3.1\AnimalShelter.WebApi.csproj.CopyComplete
