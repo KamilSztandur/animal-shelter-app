@@ -45,7 +45,8 @@ namespace AnimalShelter.WebApi
 
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(
-                    Configuration.GetConnectionString("AnimalShelterConnectionString")
+                    Configuration.GetConnectionString("AnimalShelterConnectionString"),
+                    b => b.MigrationsAssembly("AnimalShelter.WebApi")
                 )
             );
         }

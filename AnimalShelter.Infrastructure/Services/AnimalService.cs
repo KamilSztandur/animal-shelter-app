@@ -2,7 +2,6 @@
 using AnimalShelter.Core.Repositories;
 using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,15 +11,17 @@ namespace AnimalShelter.Infrastructure.Services
     public class AnimalService : IAnimalService
     {
         private readonly IAnimalRepository _animalsRepository;
+        private readonly IShelterBoxRepository _shelterBoxRepository;
 
-        public AnimalService(IAnimalRepository animalsRepository)
+        public AnimalService(IAnimalRepository animalsRepository, IShelterBoxRepository shelterBoxRepository)
         {
             _animalsRepository = animalsRepository;
+            _shelterBoxRepository = shelterBoxRepository;
         }
 
         public async Task<int> AddAnimal(CreateAnimal animalBody)
         {
-            var animal = ParseCreateAnimalIntoAnimal(animalBody);
+            var animal = await ParseCreateAnimalIntoAnimal(animalBody);
 
             var result = await _animalsRepository.AddAsync(animal);
 
@@ -52,7 +53,7 @@ namespace AnimalShelter.Infrastructure.Services
 
         public async Task<int> UpdateAnimal(int id, CreateAnimal animalBody)
         {
-            var animal = ParseCreateAnimalIntoAnimal(animalBody);
+            var animal = await ParseCreateAnimalIntoAnimal(animalBody);
 
             var result = await _animalsRepository.UpdateAsync(id, animal);
             
@@ -61,23 +62,42 @@ namespace AnimalShelter.Infrastructure.Services
 
         AnimalDTO ParseAnimalIntoAnimalDTO(Animal animal)
         {
-            return new AnimalDTO()
+            ShelterBoxDTO box = null;
+            if(animal.Box != null)
+            {
+                box = new ShelterBoxDTO()
+                {
+                    Id = animal.Box.Id,
+                    Animal = null
+                };
+            }
+
+            AnimalDTO dto = new AnimalDTO()
             {
                 Id = animal.Id,
                 Name = animal.Name,
                 MainDoctorId = animal.MainDoctorId,
-                BoxId = animal.BoxId,
+                Box = box,
                 IsReadyForAdoption = animal.IsReadyForAdoption
             };
+
+            if (animal.Box != null)
+            {
+                dto.Box.Animal = dto;
+            }
+
+            return dto;
         }
 
-        Animal ParseCreateAnimalIntoAnimal(CreateAnimal animalBody)
+        private async Task<Animal> ParseCreateAnimalIntoAnimal(CreateAnimal animalBody)
         {
+            ShelterBox box = await _shelterBoxRepository.GetAsync(animalBody.BoxId);
+
             Animal animal = new Animal()
             {
                 Name = animalBody.Name,
                 MainDoctorId = animalBody.MainDoctorId,
-                BoxId = animalBody.BoxId,
+                Box = box,
                 IsReadyForAdoption = animalBody.IsReadyForAdoption
             };
 

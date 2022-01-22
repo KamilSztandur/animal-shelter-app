@@ -91,7 +91,7 @@ namespace AnimalShelter.Infrastructure.Repositories
                 var editedAnimal = _appDbContext.Animals.FirstOrDefault(animal => animal.Id == animalId);
 
                 editedAnimal.Name = animalData.Name;
-                editedAnimal.BoxId = animalData.BoxId;
+                editedAnimal.Box = animalData.Box;
                 editedAnimal.MainDoctorId = animalData.MainDoctorId;
                 editedAnimal.IsReadyForAdoption = animalData.IsReadyForAdoption;
 

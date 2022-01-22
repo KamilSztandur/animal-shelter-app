@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AnimalShelter.Infrastructure.Migrations
+namespace AnimalShelter.WebApi.Migrations
 {
-    public partial class setupDB : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,6 @@ namespace AnimalShelter.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BoxId = table.Column<int>(type: "int", nullable: false),
                     MainDoctorId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsReadyForAdoption = table.Column<bool>(type: "bit", nullable: false)
@@ -59,20 +58,21 @@ namespace AnimalShelter.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnimalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ShelterBoxes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ShelterBoxes_Animals_Id",
+                        column: x => x.Id,
+                        principalTable: "Animals",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Animals");
-
             migrationBuilder.DropTable(
                 name: "Doctors");
 
@@ -81,6 +81,9 @@ namespace AnimalShelter.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "ShelterBoxes");
+
+            migrationBuilder.DropTable(
+                name: "Animals");
         }
     }
 }

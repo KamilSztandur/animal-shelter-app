@@ -4,16 +4,14 @@ using AnimalShelter.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AnimalShelter.Infrastructure.Migrations
+namespace AnimalShelter.WebApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211222124218_setupDB")]
-    partial class setupDB
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,9 +25,6 @@ namespace AnimalShelter.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
-
-                    b.Property<int>("BoxId")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsReadyForAdoption")
                         .HasColumnType("bit");
@@ -93,16 +88,27 @@ namespace AnimalShelter.Infrastructure.Migrations
             modelBuilder.Entity("AnimalShelter.Core.Domain.ShelterBox", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("AnimalId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("ShelterBoxes");
+                });
+
+            modelBuilder.Entity("AnimalShelter.Core.Domain.ShelterBox", b =>
+                {
+                    b.HasOne("AnimalShelter.Core.Domain.Animal", "Animal")
+                        .WithOne("Box")
+                        .HasForeignKey("AnimalShelter.Core.Domain.ShelterBox", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Animal");
+                });
+
+            modelBuilder.Entity("AnimalShelter.Core.Domain.Animal", b =>
+                {
+                    b.Navigation("Box");
                 });
 #pragma warning restore 612, 618
         }

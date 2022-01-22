@@ -8497,7 +8497,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/01153055/AnimalShelterService/_packaging/myownpackages/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/01153055/AnimalShelterService/_packaging/packages/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
