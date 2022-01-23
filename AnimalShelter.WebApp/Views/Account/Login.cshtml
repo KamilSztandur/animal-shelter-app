@@ -1,0 +1,32 @@
+﻿@model AnimalShelter.WebApp.Models.LoginVM
+
+<h3>
+    Sign in in order to manage data on this site</br>
+    If you don't have and account sign up
+    <a asp-action="Register" asp-controller="Account">here</a>
+</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login" asp-controller="Account" method="post" class="form-horizontal" role="form">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+
+                <input asp-for="UserName" class="form-control" />
+
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+
+                <input asp-for="Password" class="form-control" />
+
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Sign in" />
+            </div>
+        </form>
+    </div>
+</div>​

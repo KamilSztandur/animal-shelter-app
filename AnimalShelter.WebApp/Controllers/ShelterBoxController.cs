@@ -1,4 +1,5 @@
 ﻿using AnimalShelter.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace AniimalShelter.WebApp.Controllers
 {
+    [Authorize]
     public class ShelterBoxController : Controller
     {
         public IConfiguration Configuration;

@@ -95,7 +95,7 @@ namespace ShelterBoxTest
             Mock<ShelterBox> ShelterBox = new Mock<ShelterBox>();
 
             ShelterBox.SetupGet(e => e.Id).Returns(int.Parse(TestContext.Properties["FirstShelterBoxId"].ToString()));
-            ShelterBox.SetupGet(e => e.AnimalId).Returns(int.Parse(TestContext.Properties["FirstShelterBoxAnimalId"].ToString()));
+            ShelterBox.SetupGet(e => e.Animal.Id).Returns(int.Parse(TestContext.Properties["FirstShelterBoxAnimalId"].ToString()));
 
             return ShelterBox.Object;
         }
@@ -105,7 +105,7 @@ namespace ShelterBoxTest
             Mock<ShelterBox> ShelterBox = new Mock<ShelterBox>();
 
             ShelterBox.SetupGet(e => e.Id).Returns(int.Parse(TestContext.Properties["SecondShelterBoxId"].ToString()));
-            ShelterBox.SetupGet(e => e.AnimalId).Returns(int.Parse(TestContext.Properties["SecondShelterBoxAnimalId"].ToString()));
+            ShelterBox.SetupGet(e => e.Animal.Id).Returns(int.Parse(TestContext.Properties["SecondShelterBoxAnimalId"].ToString()));
 
             return ShelterBox.Object;
         }
@@ -115,7 +115,7 @@ namespace ShelterBoxTest
             Mock<ShelterBox> ShelterBox = new Mock<ShelterBox>();
 
             ShelterBox.SetupGet(e => e.Id).Returns(int.Parse(TestContext.Properties["ThirdShelterBoxId"].ToString()));
-            ShelterBox.SetupGet(e => e.AnimalId).Returns(int.Parse(TestContext.Properties["ThirdShelterBoxAnimalId"].ToString()));
+            ShelterBox.SetupGet(e => e.Animal.Id).Returns(int.Parse(TestContext.Properties["ThirdShelterBoxAnimalId"].ToString()));
 
             return ShelterBox.Object;
         }
@@ -142,7 +142,7 @@ namespace ShelterBoxTest
         [Description("Should add passed ShelterBox to database when it's correct.")]
         public async void CreateCorrectShelterBox()
         {
-            ShelterBox VALID_SHELTERBOX = new ShelterBox() { AnimalId = 10 };
+            ShelterBox VALID_SHELTERBOX = new ShelterBox() { Animal = new Animal() { Id = 10 } };
             int result;
 
             result = await this.Repository.AddAsync(VALID_SHELTERBOX);

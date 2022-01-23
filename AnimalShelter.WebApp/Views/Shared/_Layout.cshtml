@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,6 +36,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ShelterBox" asp-action="Index">Shelter boxes</a>
                         </li>
+                        @{
+                            if (SignInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-link text-dark">
+                                    Hello @User.Identity.Name
+                                </li>
+                                <li class="nav-link text-dark">
+                                    <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-right">
+                                        <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Sign in</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>

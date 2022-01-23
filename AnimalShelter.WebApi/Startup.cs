@@ -4,6 +4,7 @@ using AnimalShelter.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -42,6 +43,13 @@ namespace AnimalShelter.WebApi
 
             services.AddScoped<IMedicalProcedureRepository, MedicalProcedureRepository>();
             services.AddScoped<IMedicalProcedureService, MedicalProcedureService>();
+
+            services.Configure<IdentityOptions>(options => {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 1;
+                options.Password.RequireNonAlphanumeric = false;
+                options.User.RequireUniqueEmail = false;
+            });
 
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(
