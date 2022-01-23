@@ -67,8 +67,12 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                 string jsonString = System.Text.Json.JsonSerializer.Serialize(t);
                 var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
@@ -81,10 +85,14 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             DoctorVM t = new DoctorVM();
 
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                 using (var response = await httpClient.GetAsync($"{_restpath}/{id}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
@@ -101,12 +109,16 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             Boolean result;
 
             try
             {
                 using (var httpClient = new HttpClient())
                 {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                     string jsonString = System.Text.Json.JsonSerializer.Serialize(t);
                     var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
@@ -129,10 +141,14 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             DoctorVM t = new DoctorVM();
 
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                 using (var response = await httpClient.GetAsync($"{_restpath}/{id}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
@@ -149,10 +165,14 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             try
             {
                 using (var httpClient = new HttpClient())
                 {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                     var response = await httpClient.DeleteAsync($"{_restpath}/{t.Id}");
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     return RedirectToAction(nameof(Index));
