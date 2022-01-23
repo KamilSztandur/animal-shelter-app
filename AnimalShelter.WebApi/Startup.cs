@@ -1,20 +1,16 @@
 using AnimalShelter.Core.Repositories;
 using AnimalShelter.Infrastructure.Repositories;
 using AnimalShelter.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace AnimalShelter.WebApi
 {
@@ -45,10 +41,12 @@ namespace AnimalShelter.WebApi
             services.AddScoped<IMedicalProcedureService, MedicalProcedureService>();
 
             services.Configure<IdentityOptions>(options => {
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 1;
-                options.Password.RequireNonAlphanumeric = false;
-                options.User.RequireUniqueEmail = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 16;
+                options.User.RequireUniqueEmail = true;
             });
 
             services.AddDbContext<AppDbContext>(
@@ -57,6 +55,26 @@ namespace AnimalShelter.WebApi
                     b => b.MigrationsAssembly("AnimalShelter.WebApi")
                 )
             );
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(
+                options =>
+                {
+                    options.SaveToken = true;
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidAudience = "http://localhost:5000",
+                        ValidIssuer = "http://localhost:5000",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("y5&LCz#,p9kk!8B/"))
+                    };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +88,8 @@ namespace AnimalShelter.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

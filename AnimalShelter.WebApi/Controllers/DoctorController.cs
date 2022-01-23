@@ -1,6 +1,7 @@
 ﻿using AnimalShelter.Infrastructure.Commands;
 using AnimalShelter.Infrastructure.DTO;
 using AnimalShelter.Infrastructure.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 namespace AnimalShelter.WebApi.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[Controller]")]
     public class DoctorController : Controller
     {

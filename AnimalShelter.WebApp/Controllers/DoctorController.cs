@@ -1,15 +1,19 @@
-﻿using AnimalShelter.WebApp.Models;
+﻿using AnimalShelter.WebApp.Common;
+using AnimalShelter.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AniimalShelter.WebApp.Controllers
 {
+    [Authorize]
     public class DoctorController : Controller
     {
         public IConfiguration Configuration;
@@ -35,10 +39,14 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             List<DoctorVM> doctorsList = new List<DoctorVM>();
 
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                 using (var response = await httpClient.GetAsync(_restpath))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();

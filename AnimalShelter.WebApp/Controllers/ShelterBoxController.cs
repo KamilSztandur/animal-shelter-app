@@ -6,8 +6,10 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using AnimalShelter.WebApp.Common;
 
 namespace AniimalShelter.WebApp.Controllers
 {
@@ -37,10 +39,14 @@ namespace AniimalShelter.WebApp.Controllers
         {
             string _restpath = GetHostUrl().Content + CN();
 
+            var tokenString = JWTGenerator.GenerateJSONWebToken();
+
             List<ShelterBoxVM> shelterBoxsList = new List<ShelterBoxVM>();
 
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
                 using (var response = await httpClient.GetAsync(_restpath))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
