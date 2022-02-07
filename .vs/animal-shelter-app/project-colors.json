@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e540c1fc-ac5d-4eea-927f-3d49e2fe96ef": {
+      "ProjectGuid": "e540c1fc-ac5d-4eea-927f-3d49e2fe96ef",
+      "DisplayName": "AnimalShelter.WebApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

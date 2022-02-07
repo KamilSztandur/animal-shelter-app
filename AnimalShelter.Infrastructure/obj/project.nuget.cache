@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zv3E8H6/B78UCX2klmXHMa7LrYdH7kamHPvFN8n92GNAhIEnmfx6kuN/Yx2II7IbgOFFX3MMv7ggSsWRNfliGg==",
+  "dgSpecHash": "ilk/IP5RsDyxkzIHnfSxWJhUnZZH5TLJBTKtS6Me0C4VUBuwpveoP9NIm4+YGvdGrpYft080LmC9+gv8SkrwVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\kamil\\Documents\\GitHub\\animal-shelter-app\\AnimalShelter.Infrastructure\\AnimalShelter.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -105,7 +105,10 @@
     "C:\\Users\\kamil\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\kamil\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\kamil\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\kamil\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\kamil\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\kamil\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\kamil\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\kamil\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

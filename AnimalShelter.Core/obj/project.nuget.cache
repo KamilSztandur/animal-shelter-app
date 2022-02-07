@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QQAAVz9jbtt3DRTYdrjMb+F7y6X5NKtmtpCERuLy3FlE1ROEbRvXqGcV7p5nifTwOeZSNAUgCJ17MxOu2zvIhg==",
+  "dgSpecHash": "BAb2KhnYflmFlcr+3O8sMejQJvV2XQIAv47zLSlIuoC5lH9xVGpi+9a6P8m5aO6X2PxNC9x2xBdEQ0nkQnuvTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kamil\\Documents\\GitHub\\animal-shelter-app\\AnimalShelter.Core\\AnimalShelter.Core.csproj",
   "expectedPackageFiles": [
@@ -28,7 +28,10 @@
     "C:\\Users\\kamil\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.0\\microsoft.extensions.primitives.3.1.0.nupkg.sha512",
     "C:\\Users\\kamil\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",
     "C:\\Users\\kamil\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "C:\\Users\\kamil\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512"
+    "C:\\Users\\kamil\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
+    "C:\\Users\\kamil\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\kamil\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\kamil\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }
